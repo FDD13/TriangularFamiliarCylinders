@@ -10,10 +10,6 @@ def write_to_file(filename, content):
 
 
 
-
-
-
-
 def render_template(template_path, output_path, context):
     content = read_file(template_path)
 
@@ -21,3 +17,6 @@ def render_template(template_path, output_path, context):
         content = content.replace('{%s}' % key, str(value))
 
     write_to_file(output_path, content)
+
+
+
