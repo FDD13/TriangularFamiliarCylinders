@@ -1,13 +1,14 @@
 VERSION = "1.0"
 
+
 def read_file(filename):
     with open(filename, encoding='utf8') as file_:
         return file_.read()
 
+
 def write_to_file(filename, content):
     with open(filename, 'w', encoding='utf8') as file_:
         return file_.write(content)
-
 
 
 def render_template(template_path, output_path, context):
