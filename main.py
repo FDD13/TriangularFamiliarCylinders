@@ -2,7 +2,6 @@ import file_operations
 import logging
 import random
 from faker import Faker
-from file_operations import VERSION
 
 logging.basicConfig(level=logging.INFO)
 logging.info('Сообщение уровня INFO')
