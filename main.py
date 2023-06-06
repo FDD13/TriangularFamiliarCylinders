@@ -3,17 +3,11 @@ import logging
 import random
 from faker import Faker
 
+
 logging.basicConfig(level=logging.INFO)
 logging.info('Сообщение уровня INFO')
-fake = Faker("ru_RU")
 
-skills = [
-    "Стремительный прыжок", "Электрический выстрел",
-    "Ледяной удар", "Стремительный удар",
-    "Кислотный взгляд", "Тайный побег",
-    "Ледяной выстрел", "Огненный заряд"
-]
-letters = {
+LETTERS = {
     'а': 'а͠',
     'б': 'б̋',
     'в': 'в͒͠',
@@ -82,20 +76,28 @@ letters = {
     'Я': 'Я̋',
     ' ': ' '
 }
-runic_skills = []
+
+SKILLS = [
+    "Стремительный прыжок", "Электрический выстрел",
+    "Ледяной удар", "Стремительный удар",
+    "Кислотный взгляд", "Тайный побег",
+    "Ледяной выстрел", "Огненный заряд"
+]
 
 
 def translate_skills():
-    for skill in skills:
-        for key in letters.keys():
-            skill = skill.replace(key, str(letters[key]))
+    runic_skills = []
+    for skill in SKILLS:
+        for key in LETTERS.keys():
+            skill = skill.replace(key, str(LETTERS[key]))
         runic_skills.append(skill)
         logging.info(runic_skills)
 
 
 def creating_people():
+    fake = Faker("ru_RU")
     for i in range(10):
-        skills3 = random.sample(skills, 3)
+        skills3 = random.sample(SKILLS, 3)
         logging.info(skills3)
         context = {
             "first_name": fake.first_name(),
